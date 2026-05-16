@@ -1,0 +1,5189 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hailakandi Polytechnic Stock System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#eef2f7,#dbeafe);
+  font-size:16px;
+  overflow-x:hidden;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  position:fixed;
+  left:-260px;
+  top:0;
+  width:240px;
+  height:100%;
+  background:#0f172a;
+  color:white;
+  overflow-y:auto;
+  transition:0.3s;
+  z-index:2000;
+}
+
+.menu-title{
+  font-size:12px;
+  padding:12px 15px;
+  color:#94a3b8;
+  text-transform:uppercase;
+}
+
+.menu-item{
+  padding:14px 20px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.menu-item:hover{
+  background:#1e293b;
+}
+
+.sub-item{
+  padding:12px 35px;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.sub-item:hover{
+  background:#334155;
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#0f172a;
+  color:white;
+  padding:12px 15px;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+}
+
+.menuBtn{
+  font-size:26px;
+  cursor:pointer;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+}
+
+.titleBox{
+  display:flex;
+  flex-direction:column;
+}
+
+.titleMain{
+  font-size:18px;
+  font-weight:700;
+}
+
+.titleSub2{
+  font-size:12px;
+  color:#94a3b8;
+}
+
+
+/* ===== GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Outfit',sans-serif;
+}
+
+/* ===== WELCOME PAGE ===== */
+#welcome{
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  overflow:hidden;
+  position:relative;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(2,6,23,0.92),
+    rgba(15,23,42,0.88),
+    rgba(30,41,59,0.80),
+    rgba(37,99,235,0.35)
+  ),
+  url('hkk.jpg') no-repeat center center/cover;
+}
+
+/* ===== TOP LIGHT ===== */
+#welcome::before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+
+  background:
+  radial-gradient(circle,
+  rgba(59,130,246,0.30),
+  transparent 70%);
+
+  top:-250px;
+  right:-180px;
+
+  filter:blur(40px);
+}
+
+/* ===== BOTTOM LIGHT ===== */
+#welcome::after{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+
+  background:
+  radial-gradient(circle,
+  rgba(14,165,233,0.20),
+  transparent 70%);
+
+  bottom:-220px;
+  left:-160px;
+
+  filter:blur(50px);
+}
+
+/* ===== MAIN GLASS BOX ===== */
+.box{
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:560px;
+
+  padding:55px 40px;
+
+  border-radius:32px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.05)
+  );
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(22px);
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,0.45),
+  inset 0 1px 0 rgba(255,255,255,0.10);
+
+  text-align:center;
+
+  animation:boxFade 1s ease;
+}
+
+/* ===== COLLEGE NAME ===== */
+.box h1{
+  font-size:44px;
+  font-weight:800;
+
+  line-height:1.2;
+
+  margin-bottom:16px;
+
+  letter-spacing:1px;
+
+  background:linear-gradient(
+    135deg,
+    #60a5fa,
+    #93c5fd,
+    #dbeafe
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+  0 4px 15px rgba(96,165,250,0.25);
+}
+
+/* ===== SUBTITLE ===== */
+.box p{
+  font-size:17px;
+  font-weight:400;
+
+  line-height:1.8;
+
+  color:#cbd5e1;
+
+  margin-bottom:34px;
+
+  letter-spacing:0.4px;
+}
+
+/* ===== BUTTON ===== */
+button{
+  padding:15px 34px;
+
+  border:none;
+  border-radius:16px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #3b82f6,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color:white;
+
+  font-size:15px;
+  font-weight:700;
+
+  letter-spacing:0.8px;
+
+  cursor:pointer;
+
+  transition:0.35s ease;
+
+  box-shadow:
+  0 8px 22px rgba(37,99,235,0.45);
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* BUTTON SHINE */
+button::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+
+  transition:0.7s;
+}
+
+button:hover::before{
+  left:100%;
+}
+
+/* BUTTON HOVER */
+button:hover{
+  transform:translateY(-4px) scale(1.03);
+
+  box-shadow:
+  0 12px 28px rgba(37,99,235,0.55);
+
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8,
+    #1e40af
+  );
+}
+
+/* BUTTON CLICK */
+button:active{
+  transform:scale(0.96);
+}
+
+/* ===== SMALL TAG ===== */
+.collegeTag{
+  display:inline-block;
+
+  margin-bottom:18px;
+  padding:8px 18px;
+
+  border-radius:50px;
+
+  background:rgba(255,255,255,0.08);
+
+  border:1px solid rgba(255,255,255,0.10);
+
+  color:#93c5fd;
+
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes boxFade{
+
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(0.95);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .box{
+    padding:40px 24px;
+    border-radius:26px;
+  }
+
+  .box h1{
+    font-size:30px;
+  }
+
+  .box p{
+    font-size:15px;
+  }
+
+  button{
+    width:100%;
+  }
+
+}
+
+
+/* ===== LOGIN PAGE ===== */
+#loginPage{
+  display:none;
+  height:100vh;
+  width:100%;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  overflow:hidden;
+  position:relative;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(3,7,18,0.92),
+    rgba(15,23,42,0.88),
+    rgba(30,41,59,0.82),
+    rgba(168,85,247,0.25)
+  ),
+  url('hkp.jpg') no-repeat center center/cover;
+}
+
+/* ===== TOP LIGHT EFFECT ===== */
+#loginPage::before{
+  content:"";
+  position:absolute;
+
+  width:550px;
+  height:550px;
+
+  background:
+  radial-gradient(circle,
+  rgba(168,85,247,0.30),
+  transparent 70%);
+
+  top:-180px;
+  left:-160px;
+
+  border-radius:50%;
+
+  filter:blur(50px);
+}
+
+/* ===== BOTTOM LIGHT EFFECT ===== */
+#loginPage::after{
+  content:"";
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  background:
+  radial-gradient(circle,
+  rgba(59,130,246,0.25),
+  transparent 70%);
+
+  bottom:-180px;
+  right:-140px;
+
+  border-radius:50%;
+
+  filter:blur(60px);
+}
+
+/* ===== LOGIN BOX ===== */
+.login{
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:430px;
+
+  padding:45px 35px;
+
+  border-radius:30px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,255,255,0.10),
+    rgba(255,255,255,0.04)
+  );
+
+  border:1px solid rgba(255,255,255,0.14);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+  0 10px 35px rgba(0,0,0,0.45),
+  inset 0 1px 0 rgba(255,255,255,0.08);
+
+  text-align:center;
+
+  animation:loginFade 0.8s ease;
+}
+
+/* ===== LOGIN TITLE ===== */
+.login h2{
+  font-size:34px;
+  font-weight:800;
+
+  margin-bottom:10px;
+
+  letter-spacing:1px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #c084fc,
+    #60a5fa,
+    #e0f2fe
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== SUBTEXT ===== */
+.login p{
+  color:#cbd5e1;
+  font-size:14px;
+  margin-bottom:28px;
+  line-height:1.7;
+}
+
+/* ===== INPUT BOX ===== */
+.login input{
+  width:100%;
+
+  padding:15px 18px;
+  margin:12px 0;
+
+  border-radius:16px;
+
+  border:1px solid rgba(255,255,255,0.10);
+
+  outline:none;
+
+  background:rgba(255,255,255,0.08);
+
+  color:#fff;
+
+  font-size:14px;
+  font-weight:500;
+
+  transition:0.3s ease;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+  inset 0 1px 2px rgba(255,255,255,0.06);
+}
+
+/* PLACEHOLDER */
+.login input::placeholder{
+  color:#cbd5e1;
+}
+
+/* INPUT FOCUS */
+.login input:focus{
+  border-color:#8b5cf6;
+
+  background:rgba(255,255,255,0.12);
+
+  box-shadow:
+  0 0 0 4px rgba(139,92,246,0.18),
+  0 4px 15px rgba(139,92,246,0.18);
+
+  transform:translateY(-2px);
+}
+
+/* ===== LOGIN BUTTON ===== */
+.login button{
+  width:100%;
+
+  margin-top:18px;
+
+  padding:15px;
+
+  border:none;
+  border-radius:16px;
+
+  cursor:pointer;
+
+  font-size:15px;
+  font-weight:700;
+
+  letter-spacing:0.7px;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #8b5cf6,
+    #7c3aed,
+    #2563eb
+  );
+
+  transition:0.35s ease;
+
+  box-shadow:
+  0 8px 24px rgba(124,58,237,0.35);
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* BUTTON SHINE */
+.login button::before{
+  content:"";
+
+  position:absolute;
+  top:0;
+  left:-100%;
+
+  width:100%;
+  height:100%;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.30),
+    transparent
+  );
+
+  transition:0.7s;
+}
+
+.login button:hover::before{
+  left:100%;
+}
+
+/* BUTTON HOVER */
+.login button:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 12px 28px rgba(124,58,237,0.45);
+
+  background:
+  linear-gradient(
+    135deg,
+    #7c3aed,
+    #6d28d9,
+    #1d4ed8
+  );
+}
+
+/* BUTTON CLICK */
+.login button:active{
+  transform:scale(0.97);
+}
+
+/* ===== ERROR ===== */
+#error{
+  margin-top:14px;
+
+  color:#fda4af;
+
+  font-size:13px;
+  font-weight:500;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes loginFade{
+
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(0.95);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .login{
+    padding:38px 24px;
+    border-radius:24px;
+  }
+
+  .login h2{
+    font-size:28px;
+  }
+
+}
+
+
+/* ===== DASHBOARD ===== */
+#dashboard{
+  display:none;
+  padding-top:65px;
+  height:100vh;
+  overflow:auto;
+
+  background:
+  linear-gradient(
+    135deg,
+    #99B898,
+    #2A363B,
+    #E84A5F
+  );
+
+  background-size:300% 300%;
+
+  animation:bgMove 10s ease infinite;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes bgMove{
+
+  0%{
+    background-position:left;
+  }
+
+  50%{
+    background-position:right;
+  }
+
+  100%{
+    background-position:left;
+  }
+
+}
+
+/* ===== SLIDER ===== */
+.slider{
+
+  position:relative;
+
+  width:45%;
+
+  margin:14px auto;
+
+  overflow:hidden;
+
+  border-radius:22px;
+
+  background:
+  rgba(255,255,255,0.10);
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+  0 10px 35px rgba(0,0,0,0.35);
+
+  transition:0.4s;
+}
+
+.slider:hover{
+  transform:translateY(-4px);
+}
+
+.slider img{
+
+  width:100%;
+
+  height:160px;
+
+  object-fit:contain;
+
+  border-radius:22px;
+
+  transition:0.5s;
+}
+
+/* ===== SLIDE BUTTON ===== */
+.slideBtn{
+
+  position:absolute;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  width:42px;
+  height:42px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:
+  rgba(42,54,59,0.75);
+
+  color:#FECEAB;
+
+  font-size:20px;
+
+  cursor:pointer;
+
+  z-index:10;
+
+  transition:0.3s;
+}
+
+.slideBtn:hover{
+
+  background:
+  linear-gradient(
+    135deg,
+    #FF847C,
+    #E84A5F
+  );
+
+  color:white;
+
+  transform:
+  translateY(-50%)
+  scale(1.08);
+}
+
+.prev{
+  left:8px;
+}
+
+.next{
+  right:8px;
+}
+
+/* ===== HERO BOX ===== */
+.heroBox{
+
+  position:relative;
+
+  overflow:hidden;
+
+  margin:14px;
+
+  padding:30px;
+
+  border-radius:28px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(42,54,59,0.92),
+    rgba(232,74,95,0.22)
+  );
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  backdrop-filter:blur(16px);
+
+  box-shadow:
+  0 14px 35px rgba(0,0,0,0.35);
+
+  animation:fadeUp 1s ease;
+}
+
+/* ===== GLOW ===== */
+.heroBox::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  background:
+  rgba(255,132,124,0.22);
+
+  border-radius:50%;
+
+  top:-120px;
+  right:-100px;
+
+  filter:blur(60px);
+}
+
+/* ===== TITLE ===== */
+.heroTitle{
+
+  position:relative;
+  z-index:2;
+
+  font-size:30px;
+
+  font-weight:700;
+
+  color:#FECEAB;
+
+  letter-spacing:1px;
+
+  text-shadow:
+  0 3px 12px rgba(0,0,0,0.35);
+}
+
+/* ===== SUB TITLE ===== */
+.heroSub{
+
+  position:relative;
+  z-index:2;
+
+  font-size:16px;
+
+  margin-top:8px;
+
+  color:#f8d9c4;
+
+  line-height:1.8;
+}
+
+/* ===== LINE ===== */
+.heroLine{
+
+  width:90px;
+  height:4px;
+
+  margin:16px 0;
+
+  border-radius:30px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #99B898,
+    #FECEAB,
+    #FF847C,
+    #E84A5F
+  );
+}
+
+/* ===== TEXT ===== */
+.heroText{
+
+  position:relative;
+  z-index:2;
+
+  font-size:15px;
+
+  line-height:1.9;
+
+  color:#f1f5f9;
+}
+
+/* ===== SECTION ===== */
+.section{
+
+  margin:14px;
+
+  padding:22px;
+
+  border-radius:24px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+  0 12px 30px rgba(0,0,0,0.28);
+
+  transition:0.4s;
+}
+
+.section:hover{
+
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 16px 40px rgba(0,0,0,0.35);
+}
+
+/* ===== HEADING ===== */
+.section h2,
+.section h3{
+
+  color:#FECEAB;
+
+  margin-bottom:12px;
+
+  font-size:22px;
+
+  font-weight:600;
+
+  letter-spacing:0.5px;
+}
+
+/* ===== TEXT ===== */
+.section p{
+
+  color:#f3f4f6;
+
+  font-size:15px;
+
+  line-height:1.8;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(35px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .slider img{
+    height:130px;
+  }
+
+  .heroTitle{
+    font-size:24px;
+  }
+
+}
+
+/* ===== DASHBOARD CARDS ===== */
+.dashboardCards{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(170px,1fr));
+
+  gap:18px;
+
+  margin:18px;
+}
+
+/* ===== CARD ===== */
+.dashCard{
+
+  position:relative;
+
+  padding:24px 20px;
+
+  border-radius:22px;
+
+  background:#ffffff;
+
+  border:1px solid #edf2f7;
+
+  text-align:center;
+
+  overflow:hidden;
+
+  transition:0.35s ease;
+
+  box-shadow:
+  0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* ===== TOP BORDER ===== */
+.dashCard::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:5px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #51E2F5,
+    #9DF9EF,
+    #FFA8B6
+  );
+}
+
+/* ===== HOVER ===== */
+.dashCard:hover{
+
+  transform:translateY(-6px);
+
+  box-shadow:
+  0 14px 35px rgba(0,0,0,0.10);
+}
+
+/* ===== ICON ===== */
+.dashCard i{
+
+  font-size:30px;
+
+  margin-bottom:14px;
+
+  color:#51E2F5;
+}
+
+/* ===== TITLE ===== */
+.dashCard h3{
+
+  font-size:16px;
+
+  font-weight:600;
+
+  color:#374151;
+
+  margin-bottom:10px;
+
+  letter-spacing:0.3px;
+}
+
+/* ===== NUMBER ===== */
+.dashCard h1{
+
+  font-size:34px;
+
+  font-weight:700;
+
+  color:#111827;
+
+  margin-bottom:6px;
+}
+
+/* ===== TEXT ===== */
+.dashCard p{
+
+  font-size:13px;
+
+  color:#6b7280;
+
+  line-height:1.6;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .dashboardCards{
+    gap:14px;
+  }
+
+  .dashCard{
+    padding:20px 16px;
+  }
+
+  .dashCard h1{
+    font-size:28px;
+  }
+
+}
+
+/* ===== TABLE ===== */
+.stockTable{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  text-align:center;
+}
+
+.stockTable th{
+  background:#0f172a;
+  color:white;
+  padding:14px;
+}
+
+.stockTable td{
+  padding:14px;
+  border-bottom:1px solid #eee;
+}
+
+.stockTable tr:hover{
+  background:#f1f5f9;
+}
+
+/* ===== PAGE ===== */
+.page{
+  display:none;
+  padding:15px;
+  margin:10px;
+  background:white;
+  border-radius:12px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .heroTitle{
+    font-size:22px;
+  }
+
+  .heroSub{
+    font-size:14px;
+  }
+
+  .heroText{
+    font-size:14px;
+  }
+
+  .dashCard p{
+    font-size:22px;
+  }
+
+  .slider img{
+    height:130px;
+  }
+
+  .menu-item{
+    padding:12px;
+  }
+
+}
+.slider{
+  padding:0;
+}
+
+.section h3{
+  margin-bottom:10px;
+}
+
+/* ===== TABLE BOX ===== */
+.tableBox{
+
+  margin-top:16px;
+
+  padding:20px;
+
+  border-radius:24px;
+
+  background:
+  rgba(255,255,255,0.95);
+
+  border:
+  1px solid rgba(255,255,255,0.6);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+  0 12px 35px rgba(0,0,0,0.08);
+
+  animation:fadeUp 0.6s ease;
+}
+
+/* ===== TABLE HEADER ===== */
+.tableHeader{
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:18px;
+
+  font-weight:600;
+
+  color:#0f172a;
+
+  margin-bottom:16px;
+
+  letter-spacing:0.3px;
+}
+
+/* ===== PROFESSIONAL TABLE ===== */
+.proTable{
+
+  width:100%;
+
+  border-collapse:separate;
+  border-spacing:0;
+
+  overflow:hidden;
+
+  border-radius:18px;
+
+  background:#ffffff;
+}
+
+/* ===== HEADER ===== */
+.proTable th{
+
+  padding:15px;
+
+  font-size:14px;
+
+  font-weight:600;
+
+  letter-spacing:0.4px;
+
+  text-align:center;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #334155
+  );
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== DATA ===== */
+.proTable td{
+
+  padding:14px;
+
+  text-align:center;
+
+  font-size:14px;
+
+  font-weight:500;
+
+  color:#1e293b;
+
+  border-bottom:
+  1px solid #eef2f7;
+
+  transition:0.3s ease;
+}
+
+/* ===== EVEN ROW ===== */
+.proTable tr:nth-child(even){
+
+  background:
+  rgba(248,250,252,0.85);
+}
+
+/* ===== HOVER ===== */
+.proTable tr:hover{
+
+  background:
+  linear-gradient(
+    90deg,
+    rgba(59,130,246,0.08),
+    rgba(99,102,241,0.05)
+  );
+
+  transform:scale(1.001);
+}
+
+/* ===== LAST ROW ===== */
+.proTable tr:last-child td{
+  border-bottom:none;
+}
+
+/* ===== DELETE BUTTON ===== */
+.proTable button{
+
+  padding:8px 14px;
+
+  border:none;
+
+  border-radius:10px;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ef4444,
+    #dc2626
+  );
+
+  box-shadow:
+  0 4px 12px rgba(239,68,68,0.25);
+
+  transition:0.3s ease;
+}
+
+/* ===== BUTTON HOVER ===== */
+.proTable button:hover{
+
+  transform:
+  translateY(-2px)
+  scale(1.04);
+
+  box-shadow:
+  0 8px 18px rgba(239,68,68,0.35);
+}
+
+/* ===== PRINT BUTTON ===== */
+.printBtn{
+
+  margin-top:18px;
+
+  padding:12px 20px;
+
+  border:none;
+
+  border-radius:14px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  font-weight:600;
+
+  letter-spacing:0.3px;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #22c55e,
+    #16a34a
+  );
+
+  box-shadow:
+  0 8px 20px rgba(34,197,94,0.28);
+
+  transition:0.35s ease;
+}
+
+/* ===== PRINT HOVER ===== */
+.printBtn:hover{
+
+  transform:
+  translateY(-3px)
+  scale(1.04);
+
+  box-shadow:
+  0 12px 25px rgba(34,197,94,0.38);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+
+  .tableBox{
+    padding:14px;
+  }
+
+  .tableHeader{
+    font-size:16px;
+  }
+
+  .proTable th,
+  .proTable td{
+
+    padding:10px;
+
+    font-size:12px;
+  }
+
+  .printBtn{
+    width:100%;
+  }
+
+}
+
+/* ===== SMOOTH PAGE ANIMATION ===== */
+.page{
+  display:none;
+  padding:15px;
+  margin:10px;
+  background:white;
+  border-radius:12px;
+  animation:fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+input{
+  transition:0.3s;
+}
+
+input:focus{
+  outline:none;
+  border:1px solid #2563eb;
+  box-shadow:0 0 6px rgba(37,99,235,0.3);
+}
+/* ===== DEPARTMENT TITLE (ULTRA) ===== */
+.deptTitle{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:1px;
+  background:linear-gradient(270deg,#2563eb,#06b6d4,#9333ea,#2563eb);
+  background-size:400% 400%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientMove 6s ease infinite, slideDown 0.6s ease;
+  position:relative;
+}
+
+/* glow effect */
+.deptTitle::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,#06b6d4,#2563eb);
+  border-radius:5px;
+  animation:lineGrow 1s ease;
+}
+
+/* ===== DESCRIPTION ===== */
+.deptDesc{
+  font-size:15px;
+  color:#64748b;
+  margin-top:6px;
+  line-height:1.6;
+  animation:fadeIn 1s ease;
+}
+
+/* ===== TOTAL BOX (GLASS STYLE) ===== */
+.totalBox{
+  margin-top:14px;
+  padding:12px 18px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:600;
+  color:#0f172a;
+
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.4);
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+  display:inline-block;
+  animation:fadeUp 0.8s ease;
+  transition:0.3s;
+}
+
+.totalBox:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* ===== NUMBER HIGHLIGHT ===== */
+.totalBox span{
+  color:#2563eb;
+  font-size:18px;
+  font-weight:700;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideDown{
+  from{
+    opacity:0;
+    transform:translateY(-25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* moving gradient */
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* underline animation */
+@keyframes lineGrow{
+  from{
+    width:0;
+  }
+  to{
+    width:80px;
+  }
+}
+
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#eef2f7,#dbeafe);
+  font-size:16px;
+  overflow:hidden;
+}
+
+/* ===== DARK MODE ===== */
+.dark{
+  background:#0f172a;
+}
+
+.dark .page,
+.dark .section,
+.dark .tableBox{
+  background:rgba(30,41,59,0.6);
+  color:#e2e8f0;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  position:fixed;
+  left:-260px;
+  top:0;
+  width:240px;
+  height:100%;
+  background:linear-gradient(180deg,#0f172a,#1e293b);
+  color:white;
+  overflow-y:auto;
+  transition:0.4s ease;
+  z-index:2000;
+}
+
+.menu-title{
+  font-size:12px;
+  padding:12px 15px;
+  color:#94a3b8;
+  text-transform:uppercase;
+}
+
+.menu-item{
+  padding:14px 20px;
+  cursor:pointer;
+  position:relative;
+  transition:0.3s;
+}
+
+.menu-item::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:#38bdf8;
+  transition:0.3s;
+}
+
+.menu-item:hover::after{
+  width:100%;
+}
+
+.menu-item:hover{
+  background:#1e293b;
+}
+
+.sub-item{
+  padding:12px 35px;
+  cursor:pointer;
+}
+
+.sub-item:hover{
+  background:#334155;
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#0f172a;
+  color:white;
+  padding:12px 15px;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+}
+
+/* ===== PAGE ===== */
+.page{
+  display:none;
+  padding:15px;
+  margin:10px;
+  border-radius:12px;
+
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.3);
+
+  animation:fadeUp 0.4s ease;
+}
+
+/* ===== DEPARTMENT TITLE ===== */
+.deptTitle{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:1px;
+  background:linear-gradient(270deg,#2563eb,#06b6d4,#9333ea,#2563eb);
+  background-size:400% 400%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientMove 6s ease infinite, slideDown 0.6s ease;
+  position:relative;
+}
+
+.deptTitle::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,#06b6d4,#2563eb);
+  border-radius:5px;
+  animation:lineGrow 1s ease;
+}
+
+/* ===== DESCRIPTION ===== */
+.deptDesc{
+  font-size:15px;
+  color:#64748b;
+  margin-top:6px;
+  line-height:1.6;
+  animation:fadeIn 1s ease;
+}
+
+.dark .deptDesc{
+  color:#cbd5e1;
+}
+
+/* ===== TOTAL BOX ===== */
+.totalBox{
+  margin-top:14px;
+  padding:12px 18px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:600;
+
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.4);
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+  display:inline-block;
+  animation:fadeUp 0.8s ease;
+  transition:0.3s;
+}
+
+.totalBox:hover{
+  transform:translateY(-3px) scale(1.02);
+}
+
+.totalBox span{
+  color:#2563eb;
+  font-size:18px;
+  font-weight:700;
+}
+
+/* ===== TABLE BOX ===== */
+.tableBox{
+  margin-top:10px;
+  padding:15px;
+  border-radius:12px;
+
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(10px);
+
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* ===== TABLE ===== */
+.proTable{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.proTable th{
+  background:linear-gradient(90deg,#0f172a,#1e293b);
+  color:white;
+  padding:14px;
+}
+
+.proTable td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+}
+
+.proTable tr:nth-child(even){
+  background:#f8fafc;
+}
+
+.proTable tr:hover{
+  background:#e2e8f0;
+}
+
+/* ===== BUTTON ===== */
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+/* ===== PRINT BUTTON ===== */
+.printBtn{
+  margin-top:12px;
+  padding:10px 18px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  border-radius:8px;
+}
+
+/* ===== INPUT ===== */
+input{
+  transition:0.3s;
+}
+
+input:focus{
+  outline:none;
+  border:1px solid #2563eb;
+  box-shadow:0 0 6px rgba(37,99,235,0.3);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideDown{
+  from{opacity:0; transform:translateY(-25px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+@keyframes lineGrow{
+  from{width:0;}
+  to{width:80px;}
+}
+
+/* ===== DEPARTMENT COLORS ===== */
+#civilPage .deptTitle{
+  background:linear-gradient(270deg,#f97316,#facc15,#fb923c);
+  -webkit-background-clip:text;
+}
+
+#elecPage .deptTitle{
+  background:linear-gradient(270deg,#22c55e,#4ade80,#16a34a);
+  -webkit-background-clip:text;
+}
+
+.lowStockCard{
+  background: linear-gradient(135deg,#fff5f5,#ffecec);
+  border:1px solid #ffb3b3;
+  border-left:6px solid #ef4444;
+  padding:15px;
+  border-radius:12px;
+  margin:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.alertHeader{
+  font-size:16px;
+  font-weight:700;
+  color:#b91c1c;
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.alertList div{
+  background:#ffffff;
+  padding:8px 10px;
+  margin-bottom:6px;
+  border-radius:8px;
+  border:1px solid #fecaca;
+  font-size:13px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.alertList div:hover{
+  background:#fff1f1;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(-10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+
+.sectionTitle{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:8px;
+  color:#0f172a;
+}
+
+.sectionDesc{
+  font-size:14px;
+  color:#64748b;
+  margin-bottom:15px;
+  line-height:1.6;
+}
+
+/* GRID LAYOUT */
+.profileGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+}
+
+/* CARD DESIGN */
+.profileCard{
+  background: linear-gradient(145deg,#ffffff,#f1f5f9);
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  transition:0.3s ease;
+  overflow:hidden;
+  position:relative;
+}
+
+/* HOVER EFFECT */
+.profileCard:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.12);
+  border-color:#3b82f6;
+}
+
+/* IMAGE FULL COVER */
+.profileCard img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:10px;
+  transition:0.3s;
+}
+
+/* IMAGE ZOOM ON HOVER */
+.profileCard:hover img{
+  transform:scale(1.05);
+}
+
+/* TEXT */
+.profileCard h4{
+  font-size:14px;
+  margin:5px 0;
+  color:#111827;
+}
+
+.profileCard p{
+  font-size:12px;
+  color:#6b7280;
+}
+
+/* TITLE */
+.sectionTitle{
+  text-align:center;
+  font-size:22px;
+  margin:20px 0 10px;
+  font-weight:700;
+  color:#0f172a;
+  letter-spacing:1px;
+}
+
+/* GLASS CARD */
+.profileGlassCard{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:22px;
+  margin:12px;
+  border-radius:18px;
+
+  /* GLASS EFFECT */
+  background:rgba(15,23,42,0.75);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 10px 35px rgba(0,0,0,0.3);
+
+  color:white;
+  transition:0.4s ease;
+  animation:fadeUp 0.8s ease;
+}
+
+/* HOVER LIFT */
+.profileGlassCard:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+  border-color:#00c6ff;
+}
+
+/* IMAGE */
+.profileGlassImg img{
+  width:135px;
+  height:135px;
+  object-fit:cover;
+  border-radius:14px;
+  border:3px solid #00c6ff;
+  box-shadow:0 0 20px rgba(0,198,255,0.4);
+  transition:0.4s ease;
+}
+
+/* IMAGE HOVER */
+.profileGlassImg img:hover{
+  transform:scale(1.08) rotate(1deg);
+}
+
+/* TEXT */
+.profileGlassContent h2{
+  margin:0;
+  font-size:24px;
+  letter-spacing:0.5px;
+}
+
+.role{
+  font-size:14px;
+  color:#38bdf8;
+  margin:6px 0;
+}
+
+.desc{
+  font-size:13px;
+  color:#e2e8f0;
+  line-height:1.6;
+  opacity:0.9;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .profileGlassCard{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .profileGlassImg img{
+    width:150px;
+    height:150px;
+  }
+}
+
+
+/* SECTION TITLE */
+.sectionTitle{
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+  margin:20px 0;
+  color:#0f172a;
+}
+
+/* BACKGROUND CARD */
+.profileHeroCard{
+  max-width:420px;
+  margin:20px auto;
+  padding:25px;
+  text-align:center;
+
+  /* GRADIENT GLASS */
+  background:linear-gradient(135deg,#0f172a,#1e3a8a);
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.35);
+
+  position:relative;
+  overflow:hidden;
+
+  animation:fadeUp 0.8s ease;
+}
+
+/* ANIMATED BORDER LIGHT */
+.profileHeroCard::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:conic-gradient(#00c6ff,#0072ff,#00c6ff);
+  animation:rotate 4s linear infinite;
+  opacity:0.15;
+}
+
+/* ================= GLOBAL BACKGROUND THEME ================= */
+.profileHeroSection{
+  padding:30px;
+  margin:15px;
+  border-radius:22px;
+  position:relative;
+  overflow:hidden;
+
+  /* NEW MODERN COLOR */
+  background: linear-gradient(135deg,#0b0f1a,#111827,#0a0f2c);
+  color:white;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* ================= ANIMATED LIGHT ORBS ================= */
+.profileHeroSection::before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background: radial-gradient(circle,#8b5cf6,#3b82f6);
+  filter: blur(120px);
+  top:-100px;
+  left:-120px;
+  opacity:0.5;
+  animation: floatGlow 6s infinite alternate;
+}
+
+.profileHeroSection::after{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  background: radial-gradient(circle,#06b6d4,#22c55e);
+  filter: blur(120px);
+  bottom:-80px;
+  right:-100px;
+  opacity:0.4;
+  animation: floatGlow 8s infinite alternate;
+}
+
+@keyframes floatGlow{
+  0%{ transform: translateY(0px) scale(1); }
+  100%{ transform: translateY(20px) scale(1.1); }
+}
+
+/* ================= TITLE ================= */
+.sectionTitle{
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:18px;
+  letter-spacing:1px;
+  color:#e5e7eb;
+}
+
+/* ================= MAIN CARD ================= */
+.profileHeroCard{
+  position:relative;
+  z-index:2;
+
+  display:flex;
+  align-items:center;
+  gap:20px;
+
+  padding:20px;
+  border-radius:20px;
+
+  background: rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+  transition:0.5s ease;
+}
+
+/* hover premium lift effect */
+.profileHeroCard:hover{
+  transform: translateY(-8px) scale(1.02);
+  border-color:#8b5cf6;
+  box-shadow: 0 25px 60px rgba(139,92,246,0.3);
+}
+
+/* ================= IMAGE BOX ================= */
+.profileHeroImg{
+  width:110px;
+  height:110px;
+  flex-shrink:0;
+}
+
+/* circle image premium style */
+.profileHeroImg img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+
+  border:4px solid rgba(255,255,255,0.2);
+
+  box-shadow:
+    0 0 20px rgba(139,92,246,0.5),
+    0 0 40px rgba(6,182,212,0.3);
+
+  transition:0.5s ease;
+}
+
+/* hover image animation */
+.profileHeroImg img:hover{
+  transform: scale(1.12) rotate(-2deg);
+  border-color:#06b6d4;
+}
+
+/* ================= TEXT ================= */
+.profileHeroContent h2{
+  margin:0;
+  font-size:20px;
+  font-weight:800;
+  color:#f9fafb;
+}
+
+.role{
+  font-size:13px;
+  margin-top:5px;
+  color:#94a3b8;
+  letter-spacing:0.5px;
+}
+
+/* ================= BUTTON ================= */
+.visitBtn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+
+  border-radius:30px;
+
+  background: linear-gradient(135deg,#8b5cf6,#06b6d4);
+  color:white;
+
+  position:relative;
+  overflow:hidden;
+
+  transition:0.4s ease;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* shine effect */
+.visitBtn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.25);
+  transform: skewX(-25deg);
+  transition:0.6s;
+}
+
+.visitBtn:hover::before{
+  left:120%;
+}
+
+/* hover effect */
+.visitBtn:hover{
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(139,92,246,0.4);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width:600px){
+  .profileHeroCard{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .profileHeroImg{
+    width:90px;
+    height:90px;
+  }
+}
+
+/* ================= PAGE BACKGROUND ================= */
+.collegeSection{
+  padding:12px;
+  min-height:100vh;
+
+  background: linear-gradient(135deg,#f8fafc,#eef2ff,#ecfeff);
+}
+
+/* ================= GRID ================= */
+.collegeGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(120px,1fr));
+  gap:10px;
+  justify-items:center;
+}
+
+/* ================= EXACT 10CM SQUARE CARD ================= */
+.collegeItem{
+  width:10cm;
+  height:10cm;
+
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+
+  border-radius:12px;
+  border:1px solid rgba(148,163,184,0.4);
+
+  box-shadow:0 6px 14px rgba(0,0,0,0.08);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  transition:0.3s ease;
+  overflow:hidden;
+
+  position:relative;
+}
+
+/* hover effect */
+.collegeItem:hover{
+  transform: scale(1.1);
+  z-index:2;
+  box-shadow:0 15px 30px rgba(59,130,246,0.25);
+  border-color:#60a5fa;
+}
+
+/* ================= IMAGE ================= */
+.collegeItem img{
+  width:100%;
+  height:70%;
+
+  object-fit: contain;   /* full photo show */
+
+  background:#f1f5f9;
+  border-radius:8px;
+  padding:2px;
+}
+
+/* ================= TEXT ================= */
+.collegeItem h3{
+  font-size:10px;
+  margin-top:2px;
+  color:#0f172a;
+  font-weight:600;
+}
+
+/* ================= SHINE ANIMATION ================= */
+.collegeItem::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+
+  background: linear-gradient(120deg,transparent,rgba(96,165,250,0.25),transparent);
+
+  transition:0.6s;
+}
+
+.collegeItem:hover::before{
+  left:100%;
+}
+
+
+.page{
+display:none;
+}
+
+#homePage{
+display:block;
+}
+
+/* ===== LOCATION ===== */
+
+.locationBox{
+
+  margin-top:35px;
+
+  padding:28px;
+
+  border-radius:28px 28px 0 0;
+
+  background:
+  linear-gradient(
+  135deg,
+  #111827,
+  #1e1b4b,
+  #312e81
+  );
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.28);
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+/* glow */
+.locationBox::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  background:
+  rgba(99,102,241,0.15);
+
+  border-radius:50%;
+
+  top:-120px;
+  right:-120px;
+
+  filter:blur(90px);
+}
+
+/* title */
+.locationTitle{
+
+  font-size:34px;
+
+  font-weight:700;
+
+  margin-bottom:12px;
+
+  letter-spacing:1px;
+
+  background:
+  linear-gradient(
+  90deg,
+  #ffffff,
+  #cbd5e1
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+}
+
+/* text */
+.locationText{
+
+  color:#cbd5e1;
+
+  font-size:15px;
+
+  line-height:1.8;
+
+  margin-bottom:22px;
+}
+
+/* MAP */
+.mapFrame{
+
+  border:none;
+
+  border-radius:22px;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.35);
+}
+
+
+
+/* ===== FOOTER ===== */
+
+.footerSection{
+
+  position:relative;
+
+  padding:50px 20px;
+
+  text-align:center;
+
+  background:
+  linear-gradient(
+  135deg,
+  #0f172a,
+  #1e1b4b,
+  #312e81
+  );
+}
+
+/* line */
+.footerLine{
+
+  width:90px;
+  height:4px;
+
+  margin:auto;
+
+  border-radius:10px;
+
+  background:
+  linear-gradient(
+  90deg,
+  #f97316,
+  #fb923c
+  );
+}
+
+/* title */
+.footerTitle{
+
+  margin-top:22px;
+
+  font-size:34px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+
+  background:
+  linear-gradient(
+  90deg,
+  #ffffff,
+  #cbd5e1
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+}
+
+/* text */
+.footerText{
+
+  margin-top:14px;
+
+  color:#cbd5e1;
+
+  font-size:15px;
+
+  line-height:1.8;
+}
+
+/* bottom */
+.footerBottom{
+
+  margin-top:35px;
+
+  color:#94a3b8;
+
+  font-size:14px;
+
+  line-height:1.9;
+}
+
+.footerBottom span{
+
+  color:#f97316;
+
+  font-weight:700;
+
+  letter-spacing:0.5px;
+}
+
+/* TOP BUTTON */
+
+.topBtn{
+
+  position:absolute;
+
+  right:22px;
+  bottom:22px;
+
+  width:55px;
+  height:55px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:
+  linear-gradient(
+  135deg,
+  #f97316,
+  #ea580c
+  );
+
+  color:white;
+
+  font-size:24px;
+
+  cursor:pointer;
+
+  transition:0.35s;
+
+  box-shadow:
+  0 10px 25px rgba(249,115,22,0.35);
+}
+
+.topBtn:hover{
+
+  transform:
+  translateY(-5px)
+  scale(1.05);
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .locationBox{
+
+    padding:20px;
+  }
+
+  .locationTitle{
+
+    font-size:26px;
+  }
+
+  .footerTitle{
+
+    font-size:24px;
+  }
+
+  .footerText{
+
+    font-size:14px;
+  }
+
+}
+
+/* STATUS */
+.statusBox{
+
+  display:inline-block;
+
+  margin-top:18px;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  background:
+  rgba(34,197,94,0.12);
+
+  color:#4ade80;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  border:
+  1px solid rgba(74,222,128,0.2);
+}
+
+/* CLOCK */
+#liveClock{
+
+  margin-top:18px;
+
+  color:#cbd5e1;
+
+  font-size:15px;
+
+  letter-spacing:1px;
+}
+
+/* LINKS */
+.quickLinks{
+
+  margin-top:28px;
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:18px;
+
+  flex-wrap:wrap;
+}
+
+.quickLinks span{
+
+  color:#cbd5e1;
+
+  font-size:14px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.quickLinks span:hover{
+
+  color:#38bdf8;
+}
+
+/* QUOTE */
+.footerQuote{
+
+  margin-top:28px;
+
+  font-size:15px;
+
+  color:#e2e8f0;
+
+  font-style:italic;
+
+  line-height:1.8;
+}
+
+/* VERSION */
+.versionBox{
+
+  margin-top:20px;
+
+  color:#94a3b8;
+
+  font-size:13px;
+
+  letter-spacing:1px;
+}
+
+
+/* ===== SOCIAL ICONS ===== */
+
+.socialIcons{
+  margin-top:20px;
+  margin-bottom:18px;   /* GAP BELOW ICONS */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;   /* GAP BETWEEN ICONS */
+}
+
+/* ===== STATUS BOX ===== */
+
+.statusBox{
+  margin-top:18px;   /* GAP ABOVE */
+  margin-bottom:22px; /* GAP BELOW */
+}
+
+/* ===== CLOCK ===== */
+
+#liveClock{
+  margin-top:18px;
+  margin-bottom:28px;  /* GAP BELOW CLOCK */
+  font-size:15px;
+  color:white;
+}
+
+/* ===== QUICK LINKS ===== */
+
+.quickLinks{
+  margin-top:10px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;   /* GAP BETWEEN LINKS */
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== WELCOME PAGE ===== -->
+
+<div id="welcome">
+
+  <div class="box">
+
+    
+
+    <h1>
+      🏫 Hailakandi Polytechnic
+    </h1>
+
+    <h3 class="subTitle">
+      College Inventory Management System
+    </h3>
+
+    <p class="welcomeText">
+      Smart & Professional Digital Inventory Platform
+      for Departments, Laboratories, Workshops & Library
+      Management.
+    </p>
+
+    <button onclick="goLogin()" class="enterBtn">
+      Enter System →
+    </button>
+
+  </div>
+
+</div>
+
+<!-- LOGIN -->
+
+<div id="loginPage">
+<div class="login">
+
+<img src="clg logo.jpeg" width="70">
+
+<h2>Login</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+
+<p id="error"></p>
+
+<button onclick="login()">Login</button>
+
+<div style="
+margin-top:15px;
+padding:12px;
+background:rgba(255,255,255,0.1);
+border-radius:10px;
+font-size:14px;
+line-height:1.8;
+color:#fff;
+text-align:left;
+">
+
+<b>User Login Access</b><br><br>
+
+Username: <b>Student@hkp</b><br>
+Password: <b>Student@60020</b>
+
+</div>
+
+</div>
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard">
+
+<div class="topbar">
+
+<div class="menuBtn" onclick="toggleSidebar()">☰</div>
+
+<img src="clg logo.jpeg" class="logo">
+
+<div class="titleBox">
+  <div class="titleMain">Hailakandi Polytechnic</div>
+  <div class="titleSub2">Inventory Management System</div>
+</div>
+
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+<div class="menu-title">MAIN</div>
+
+<div class="menu-item" onclick="showPage('homePage')">Home</div>
+
+<!-- SEMESTER LAB -->
+<div class="menu-item" onclick="toggleMenu('semMenu')">
+1st & 2nd Sem Lab
+</div>
+
+<div id="semMenu" style="display:none;">
+
+<div class="sub-item" onclick="openSem('chemPage')">
+Chemistry Lab
+</div>
+
+<div class="sub-item" onclick="openSem('phyPage')">
+Physics Lab
+</div>
+
+<div class="sub-item" onclick="openSem('emPage')">
+EM Lab
+</div>
+
+<div class="sub-item" onclick="openSem('feeePage')">
+FEEE Lab
+</div>
+
+<div class="sub-item" onclick="openSem('itPage')">
+IT Lab
+</div>
+
+</div>
+
+<!-- WORKSHOP -->
+<div class="menu-item" onclick="toggleMenu('workshopMenu')">
+Workshop
+</div>
+
+<div id="workshopMenu" style="display:none;">
+
+<div class="sub-item" onclick="openWorkshop('carpPage')">
+Carpentry Shop
+</div>
+
+<div class="sub-item" onclick="openWorkshop('fitPage')">
+Fitting Shop
+</div>
+
+<div class="sub-item" onclick="openWorkshop('weldPage')">
+Welding Shop
+</div>
+
+<div class="sub-item" onclick="openWorkshop('machinePage')">
+Machine Shop
+</div>
+
+<div class="sub-item" onclick="openWorkshop('blackPage')">
+Blacksmithy Shop
+</div>
+
+</div>
+
+
+<!-- BRANCH MENU -->
+<div class="menu-item" onclick="toggleMenu('branchMenu')">
+Branch
+</div>
+
+<div id="branchMenu" style="display:none;">
+
+<div class="sub-item" onclick="openBranch('csePage')">
+CSE Department
+</div>
+
+<div class="sub-item" onclick="openBranch('civilPage')">
+Civil Department
+</div>
+
+<div class="sub-item" onclick="openBranch('elecPage')">
+Electrical Department
+</div>
+
+</div>
+
+<div class="menu-item" onclick="toggleMenu('libMenu')">
+  Library
+</div>
+
+<div id="libMenu" style="display:none;">
+
+  <div class="sub-item" onclick="openLibrary('libCsePage')">
+    CSE Department
+  </div>
+
+  <div class="sub-item" onclick="openLibrary('libCivilPage')">
+    Civil Department
+  </div>
+
+  <div class="sub-item" onclick="openLibrary('libElecPage')">
+    Electrical Department
+  </div>
+
+  <div class="sub-item" onclick="openLibrary('libSemPage')">
+    1st & 2nd Semester
+  </div>
+
+  <div class="sub-item"
+       onclick="window.open('https://iks-site.github.io/libay/','_blank')">
+    Issue & Return Book
+  </div>
+
+</div>
+
+<!-- SLIDER -->
+<!-- SEARCH -->
+<!-- ADD ITEM -->
+<!-- TABLE -->
+
+</div>
+<!-- SLIDER -->
+<div class="slider">
+
+<button class="slideBtn prev" onclick="prevSlide()">❮</button>
+
+<img id="slideImg" src="c.jpg">
+
+<button class="slideBtn next" onclick="nextSlide()">❯</button>
+
+</div>
+
+<!-- INVENTORY PAGES -->
+<!-- HOME PAGE -->
+<div id="homePage" class="page">
+
+<div class="heroBox">
+
+<h1 class="heroTitle">
+Hailakandi Polytechnic
+</h1>
+
+<h2 class="heroSub">
+Inventory Management Automation System
+</h2>
+
+<div class="heroLine"></div>
+
+<p class="heroText">
+The Hailakandi Polytechnic Inventory Management Automation System provides 
+a centralized digital platform for managing institutional assets, laboratory 
+equipment, and departmental stock in an organized and efficient manner. 
+This system is designed to simplify inventory control and improve operational workflow.
+</p>
+
+<p class="heroText">
+The dashboard enables real-time stock monitoring, department-wise tracking, 
+and structured data management. Administrators can add items, update inventory, 
+view stock details, and maintain accurate records across all departments.
+</p>
+
+<p class="heroText">
+This platform enhances transparency, reduces manual workload, and ensures 
+effective utilization of institutional resources through a modern automated 
+inventory management approach.
+</p>
+<div style="margin-top:15px;">
+  <a href="https://hailakandipolytechnic.ac.in/" target="_blank"
+     style="display:inline-block;margin:5px;padding:10px 18px;
+     background:#00c6ff;color:white;border-radius:20px;text-decoration:none;">
+     🌐 Visit Website
+  </a>
+
+  <a href="https://www.instagram.com/hkp_official_ig?igsh=dzcwMjczZWd1b3Nj" target="_blank"
+     style="display:inline-block;margin:5px;padding:10px 18px;
+     background:#ff4ecd;color:white;border-radius:20px;text-decoration:none;">
+      Instagram
+  </a>
+</div>
+</div>
+<!-- DASHBOARD CARDS -->
+<div class="section" style="
+  background:linear-gradient(135deg,#0f172a,#1e3a8a);
+  color:white;
+  border-radius:15px;
+  padding:20px;
+  margin:10px;
+  text-align:center;
+">
+
+<h2 style="
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:5px;
+">
+Inventory Dashboard
+</h2>
+
+<div style="
+  width:60px;
+  height:3px;
+  background:#00c6ff;
+  margin:8px auto;
+  border-radius:2px;
+"></div>
+
+<p style="
+  font-size:14px;
+  color:#cbd5e1;
+  line-height:1.6;
+">
+This dashboard provides a comprehensive and centralized overview of total inventory assets across all academic departments and laboratory facilities, including Computer Science Engineering (CSE), Civil Engineering, Electrical Engineering, Chemistry Laboratory, Physics Laboratory, EM Laboratory, FEEE Laboratory, and IT Laboratory, ensuring efficient monitoring, accurate tracking, and streamlined management of resources.
+
+</p>
+
+</div>
+<div class="dashboardCards">
+
+<div class="dashCard">
+<h3>CSE Total</h3>
+<p id="dashCse">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Civil Total</h3>
+<p id="dashCivil">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Electrical</h3>
+<p id="dashElec">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Chemistry Total</h3>
+<p id="dashChem">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Physics Total</h3>
+<p id="dashPhy">0</p>
+</div>
+
+<div class="dashCard">
+<h3>EM Lab Total</h3>
+<p id="dashEm">0</p>
+</div>
+
+<div class="dashCard">
+<h3>FEEE Total</h3>
+<p id="dashFeee">0</p>
+</div>
+
+<div class="dashCard">
+<h3>IT Lab Total</h3>
+<p id="dashIt">0</p>
+</div>
+<div class="dashCard">
+<h3>Carpentry Shop Total</h3>
+<p id="dashCarp">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Fitting Shop Total</h3>
+<p id="dashFit">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Welding Shop Total</h3>
+<p id="dashWeld">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Machine Shop Total</h3>
+<p id="dashMachine">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Blacksmithy Shop Total</h3>
+<p id="dashBlack">0</p>
+</div>
+<div class="dashCard">
+<h3>CSE Books</h3>
+<p id="dashLibCse">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Civil Books</h3>
+<p id="dashLibCivil">0</p>
+</div>
+
+<div class="dashCard">
+<h3>Electrical Books</h3>
+<p id="dashLibElec">0</p>
+</div>
+
+<div class="dashCard">
+<h3>1st & 2nd Sem Books</h3>
+<p id="dashLibSem">0</p>
+</div>
+</div>
+
+<!-- LOW STOCK ALERT -->
+<div id="lowStockAlert" style="display:none;" class="lowStockCard">
+
+  <div class="alertHeader">
+    ⚠ Low Stock Alert
+  </div>
+
+  <div id="lowStockList" class="alertList"></div>
+
+</div>
+
+
+<!-- CHAT BOARD -->
+<div class="section">
+
+<h3> News & Notice</h3>
+
+<div id="chatBox"
+style="height:220px;overflow:auto;background:#f1f5f9;
+padding:10px;border-radius:10px;margin-bottom:10px;">
+</div>
+
+<div id="adminChat">
+<input id="chatInput" placeholder="Admin write message..."
+style="width:65%;padding:10px;border-radius:8px;border:1px solid #ccc;">
+<button onclick="sendMessage()">Send</button>
+</div>
+
+
+<div class="section">
+
+  <!-- ================= COLLEGE FACILITIES ================= -->
+<div class="collegeSection">
+
+  <h2 class="collegeTitle">College Facilities & Administration</h2>
+
+  <!-- ITEM 1 -->
+  <div class="collegeItem">
+    <img src="p.jpg" alt="Principal">
+    <h3>Principal</h3>
+  </div>
+
+  <!-- ITEM 2 -->
+  <div class="collegeItem">
+    <img src="cse.jpg" alt="CSE">
+    <h3>CSE Department</h3>
+  </div>
+
+  <!-- ITEM 3 -->
+  <div class="collegeItem">
+    <img src="el.jpg" alt="Electrical">
+    <h3>Electrical Department</h3>
+  </div>
+
+  <!-- ITEM 4 -->
+  <div class="collegeItem">
+    <img src="civil.jpg" alt="Civil">
+    <h3>Civil Department</h3>
+  </div>
+
+  <!-- ITEM 5 -->
+  <div class="collegeItem">
+    <img src="1s2s.jpg" alt="Basic Science">
+    <h3>Basic Science & Humanities</h3>
+  </div>
+
+  <!-- ITEM 6 -->
+  <div class="collegeItem">
+    <img src="ost.jpg" alt="Office Staff">
+    <h3>Office Staff</h3>
+  </div>
+
+  <!-- ITEM 7 -->
+  <div class="collegeItem">
+    <img src="workshope.jpg" alt="Workshop">
+    <h3>Workshop & Technical Staff</h3>
+  </div>
+
+</div>
+
+
+<!-- ===== LOCATION SECTION ===== -->
+
+<div class="locationBox">
+
+  <!-- TITLE -->
+  <div class="locationTitle">
+     Our Location
+  </div>
+
+  <!-- TEXT -->
+  <p class="locationText">
+    Hailakandi Polytechnic Engineering College,
+    Katlicherra, Hailakandi, Assam
+  </p>
+
+  <!-- MAP -->
+  <iframe
+  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d138858.63197498574!2d92.54886394015925!3d24.470914034250647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e18b9492efb97%3A0xe23469eead374c9f!2sHailakandi%20Polytechnic%20Katlicherra!5e0!3m2!1sen!2sus!4v1776790341746!5m2!1sen!2sus"
+  width="100%"
+  height="280"
+  class="mapFrame"
+  loading="lazy">
+  </iframe>
+
+</div>
+
+
+<div class="footerSection">
+
+  <!-- LINE -->
+  <div class="footerLine"></div>
+
+  <!-- TITLE -->
+  <h2 class="footerTitle">
+    Hailakandi Polytechnic
+  </h2>
+
+  <!-- TEXT -->
+  <p class="footerText">
+
+    Empowering Technical Education Through
+    Smart Digital Innovation & Modern Technology.
+
+  </p>
+
+  <!-- SOCIAL MEDIA -->
+  <div class="socialIcons">
+
+    <!-- FACEBOOK -->
+    <a href="https://www.facebook.com/share/14WcV8WihT2/" target="_blank">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a href="https://www.instagram.com/hkp_official_ig?igsh=cmZlNmhyYmM5amJt" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <!-- TWITTER -->
+    <a href="#">
+      <i class="fab fa-twitter"></i>
+    </a>
+
+    <!-- WEBSITE -->
+    <a href="https://hailakandipolytechnic.ac.in/" target="_blank">
+      <i class="fab fa-google"></i>
+    </a>
+
+  </div>
+
+  <!-- SYSTEM STATUS -->
+  <div class="statusBox">
+    🟢 System Active
+  </div>
+
+  <!-- LIVE CLOCK -->
+  <div id="liveClock"></div>
+
+  <!-- QUICK LINKS -->
+  <div class="quickLinks">
+
+    <span>Home</span>
+    <span>Departments</span>
+    <span>Labs</span>
+    <span>Library</span>
+    <span>Workshop</span>
+
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="footerDivider"></div>
+
+  <!-- COPYRIGHT -->
+  <div class="footerBottom">
+
+    © 2026 All Rights Reserved
+
+    <br><br>
+
+    Designed & Developed By
+
+    <span>
+      Maruf Hassan
+    </span>
+
+  </div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+<!-- CSE PAGE -->
+<div id="csePage" class="page">
+
+<h2 class="deptTitle"> CSE Department</h2>
+
+<p class="deptDesc">
+Computer Science Engineering Lab Inventory Management System
+</p>
+
+<h3 class="totalBox">
+Total Items : <span id="cseTotal">0</span>
+</h3>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="cseName" placeholder="Enter Item Name"
+style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<input id="cseQty" type="number" placeholder="Qty"
+style="width:120px; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<button onclick="addBranchItem('cse')" style="
+padding:12px 18px;
+background:#0f172a;
+color:white;
+border-radius:8px;
+font-weight:600;
+">
++ Add Item
+</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader">
+   Department Item List
+</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="cseTable"></tbody>
+</table>
+<button onclick="printBranch('cse')" class="printBtn">
+🖨 Print Report
+</button>
+</div>
+</div>
+<!-- CIVIL PAGE -->
+<div id="civilPage" class="page">
+
+<h2 class="deptTitle">Civil Department</h2>
+
+<p class="deptDesc">
+Civil Engineering Lab Inventory Management System
+</p>
+
+<h3 class="totalBox">
+Total Items : <span id="civilTotal">0</span>
+</h3>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="civilName" placeholder="Enter Item Name"
+style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<input id="civilQty" type="number" placeholder="Qty"
+style="width:120px; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<button onclick="addBranchItem('civil')" style="
+padding:12px 18px;
+background:#0f172a;
+color:white;
+border-radius:8px;
+font-weight:600;
+">
+ Add Item
+</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader">
+ Department Item List
+</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="civilTable"></tbody>
+</table>
+
+<button onclick="printBranch('civil')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+
+<!-- ELECTRICAL PAGE -->
+<div id="elecPage" class="page">
+
+<h2 class="deptTitle">Electrical Department</h2>
+
+<p class="deptDesc">
+Electrical Engineering Lab Inventory Management System
+</p>
+
+<h3 class="totalBox">
+Total Items : <span id="elecTotal">0</span>
+</h3>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="elecName" placeholder="Enter Item Name"
+style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<input id="elecQty" type="number" placeholder="Qty"
+style="width:120px; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<button onclick="addBranchItem('elec')" style="
+padding:12px 18px;
+background:#0f172a;
+color:white;
+border-radius:8px;
+font-weight:600;
+">
+ Add Item
+</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader">
+ Department Item List
+</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="elecTable"></tbody>
+</table>
+
+<button onclick="printBranch('elec')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+
+<!-- Chemistry PAGE -->
+<div id="chemPage" class="page">
+
+<h2 class="deptTitle">Chemistry Lab</h2>
+
+<p class="deptDesc">Chemistry laboratory inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="chemTotal">0</span>
+</div>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="chemName" placeholder="Enter Item Name"
+style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<input id="chemQty" type="number" placeholder="Qty"
+style="width:120px; padding:12px; border-radius:8px; border:1px solid #ccc;">
+
+<button onclick="addBranchItem('chem')" style="
+padding:12px 18px;
+background:#0f172a;
+color:white;
+border-radius:8px;
+font-weight:600;
+">
++ Add Item
+</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader">
+Chemistry Lab Item List
+</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="chemTable"></tbody>
+</table>
+
+<button onclick="printBranch('chem')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+
+
+<!--Physic Lab -->
+<div id="phyPage" class="page">
+
+<h2 class="deptTitle">Physics Lab</h2>
+
+<p class="deptDesc">Physics laboratory inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="phyTotal">0</span>
+</div>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="phyName" placeholder="Enter Item Name">
+<input id="phyQty" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('phy')">Add Item</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader"> Physics Lab Item List</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="phyTable"></tbody>
+</table>
+
+<button onclick="printBranch('phy')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+
+<!--EM Lab -->
+<div id="emPage" class="page">
+
+<h2 class="deptTitle"> EM Lab</h2>
+
+<p class="deptDesc">EM laboratory inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="emTotal">0</span>
+</div>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="emName" class="inputBox" placeholder="Enter Item Name">
+
+<input id="emQty" class="qtyBox" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('em')">+ Add Item</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader"> EM Lab Item List</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="emTable"></tbody>
+</table>
+
+<button onclick="printBranch('em')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+
+<!-- FEEE Lab -->
+<div id="feeePage" class="page">
+
+<h2 class="deptTitle"> FEEE Lab</h2>
+
+<p class="deptDesc">FEEE laboratory inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="feeeTotal">0</span>
+</div>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="feeeName" class="inputBox" placeholder="Enter Item Name">
+
+<input id="feeeQty" class="qtyBox" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('feee')">Add Item</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader"> FEEE Lab Item List</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="feeeTable"></tbody>
+</table>
+
+<button onclick="printBranch('feee')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+
+<!-- IT Lab -->
+<div id="itPage" class="page">
+
+<h2 class="deptTitle">IT Lab</h2>
+
+<p class="deptDesc">IT laboratory inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="itTotal">0</span>
+</div>
+
+<div style="display:flex; gap:10px; margin:15px 0; flex-wrap:wrap;">
+
+<input id="itName" class="inputBox" placeholder="Enter Item Name">
+
+<input id="itQty" class="qtyBox" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('it')">Add Item</button>
+
+</div>
+
+<div class="tableBox">
+
+<div class="tableHeader"> IT Lab Item List</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="itTable"></tbody>
+</table>
+
+<button onclick="printBranch('it')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+
+
+<!-- Carpentry -->
+<div id="carpPage" class="page">
+
+<h2 class="deptTitle">🪵 Carpentry Shop</h2>
+
+<p class="deptDesc">Carpentry workshop inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="carpTotal">0</span>
+</div>
+
+<input id="carpName" placeholder="Enter Item Name">
+<input id="carpQty" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('carp')"> Add Item</button>
+
+<div class="tableBox">
+
+<div class="tableHeader">Carpentry Shop Items</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="carpTable"></tbody>
+</table>
+
+<button onclick="printBranch('carp')" class="printBtn">
+🖨 Print Report
+</button>
+
+</div>
+</div>
+<div id="fitPage" class="page">
+
+<h2 class="deptTitle"> Fitting Shop</h2>
+
+<p class="deptDesc">Fitting workshop inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="fitTotal">0</span>
+</div>
+
+<input id="fitName" placeholder="Enter Item Name">
+<input id="fitQty" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('fit')"> Add Item</button>
+
+<div class="tableBox">
+<div class="tableHeader"> Fitting Shop Items</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="fitTable"></tbody>
+</table>
+
+<button onclick="printBranch('fit')" class="printBtn">Print Report</button>
+</div>
+</div>
+
+
+<div id="weldPage" class="page">
+
+<h2 class="deptTitle"> Welding Shop</h2>
+
+<p class="deptDesc">Welding workshop inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="weldTotal">0</span>
+</div>
+
+<input id="weldName" placeholder="Enter Item Name">
+<input id="weldQty" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('weld')"> Add Item</button>
+
+<div class="tableBox">
+<div class="tableHeader"> Welding Shop Items</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="weldTable"></tbody>
+</table>
+
+<button onclick="printBranch('weld')" class="printBtn">🖨 Print Report</button>
+</div>
+</div>
+
+
+
+<div id="machinePage" class="page">
+
+<h2 class="deptTitle"> Machine Shop</h2>
+
+<p class="deptDesc">Machine workshop inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="machineTotal">0</span>
+</div>
+
+<input id="machineName" placeholder="Enter Item Name">
+<input id="machineQty" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('machine')">+ Add Item</button>
+
+<div class="tableBox">
+<div class="tableHeader"> Machine Shop Items</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="machineTable"></tbody>
+</table>
+
+<button onclick="printBranch('machine')" class="printBtn">🖨 Print Report</button>
+</div>
+</div>
+
+
+<div id="blackPage" class="page">
+
+<h2 class="deptTitle"> Blacksmithy Shop</h2>
+
+<p class="deptDesc">Blacksmithy workshop inventory system</p>
+
+<div class="totalBox">
+Total Items: <span id="blackTotal">0</span>
+</div>
+
+<input id="blackName" placeholder="Enter Item Name">
+<input id="blackQty" type="number" placeholder="Qty">
+
+<button onclick="addBranchItem('black')"> Add Item</button>
+
+<div class="tableBox">
+<div class="tableHeader"> Blacksmithy Shop Items</div>
+
+<table class="proTable">
+<thead>
+<tr>
+<th>SL No.</th>
+<th>Item Name</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="blackTable"></tbody>
+</table>
+
+<button onclick="printBranch('black')" class="printBtn">🖨 Print Report</button>
+</div>
+</div>
+
+<!-- ================= CSE LIBRARY ================= -->
+
+<div id="libCsePage" class="page">
+
+<h2 class="deptTitle">CSE Library</h2>
+<p class="deptDesc">Computer Science department book inventory system</p>
+
+<div class="totalBox">
+Total Books: <span id="libCseTotal">0</span>
+</div>
+
+<input id="libCseName" placeholder="Book Name">
+<input id="libCseCode" placeholder="Book Code">
+<input id="libCseQty" type="number" placeholder="Quantity">
+
+<button onclick="addLibrary('libCse')"> Add Book</button>
+
+<div class="tableBox">
+
+<div class="tableHeader"> Book List</div>
+
+<table class="proTable">
+
+<thead>
+<tr>
+<th>SL No</th>
+<th>Book Name</th>
+<th>Book Code</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="libCseTable"></tbody>
+
+</table>
+
+<button onclick="printLibrary('libCse')" class="printBtn">
+🖨 Print
+</button>
+
+</div>
+</div>
+
+<!-- ================= CIVIL LIBRARY ================= -->
+
+<div id="libCivilPage" class="page">
+
+<h2 class="deptTitle"> Civil Library</h2>
+
+<p class="deptDesc">
+Civil Engineering department book inventory system
+</p>
+
+<div class="totalBox">
+Total Books: <span id="libCivilTotal">0</span>
+</div>
+
+<input id="libCivilName" placeholder="Book Name">
+<input id="libCivilCode" placeholder="Book Code">
+<input id="libCivilQty" type="number" placeholder="Quantity">
+
+<button onclick="addLibrary('libCivil')">
+ Add Book
+</button>
+
+<div class="tableBox">
+
+<div class="tableHeader">
+Civil Book List
+</div>
+
+<table class="proTable">
+
+<thead>
+<tr>
+<th>SL No</th>
+<th>Book Name</th>
+<th>Book Code</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="libCivilTable"></tbody>
+
+</table>
+
+<button onclick="printLibrary('libCivil')" class="printBtn">
+🖨 Print
+</button>
+
+</div>
+</div>
+
+
+<!-- ================= ELECTRICAL LIBRARY ================= -->
+
+<div id="libElecPage" class="page">
+
+<h2 class="deptTitle">Electrical Library</h2>
+
+<p class="deptDesc">
+Electrical Engineering department book inventory system
+</p>
+
+<div class="totalBox">
+Total Books: <span id="libElecTotal">0</span>
+</div>
+
+<input id="libElecName" placeholder="Book Name">
+<input id="libElecCode" placeholder="Book Code">
+<input id="libElecQty" type="number" placeholder="Quantity">
+
+<button onclick="addLibrary('libElec')">
+ Add Book
+</button>
+
+<div class="tableBox">
+
+<div class="tableHeader">
+ Electrical Book List
+</div>
+
+<table class="proTable">
+
+<thead>
+<tr>
+<th>SL No</th>
+<th>Book Name</th>
+<th>Book Code</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="libElecTable"></tbody>
+
+</table>
+
+<button onclick="printLibrary('libElec')" class="printBtn">
+🖨 Print
+</button>
+
+</div>
+</div>
+
+
+<!-- ================= SEMESTER LIBRARY ================= -->
+
+<div id="libSemPage" class="page">
+
+<h2 class="deptTitle">
+ 1st & 2nd Semester Library
+</h2>
+
+<p class="deptDesc">
+Common semester book inventory system
+</p>
+
+<div class="totalBox">
+Total Books: <span id="libSemTotal">0</span>
+</div>
+
+<input id="libSemName" placeholder="Book Name">
+<input id="libSemCode" placeholder="Book Code">
+<input id="libSemQty" type="number" placeholder="Quantity">
+
+<button onclick="addLibrary('libSem')">
+ Add Book
+</button>
+
+<div class="tableBox">
+
+<div class="tableHeader">
+ Semester Book List
+</div>
+
+<table class="proTable">
+
+<thead>
+<tr>
+<th>SL No</th>
+<th>Book Name</th>
+<th>Book Code</th>
+<th>Quantity</th>
+<th class="actionCol">Action</th>
+</tr>
+</thead>
+
+<tbody id="libSemTable"></tbody>
+
+</table>
+
+<button onclick="printLibrary('libSem')" class="printBtn">
+🖨 Print
+</button>
+</div>
+</div>
+<script>
+
+/* PAGE FLOW */
+
+function goLogin(){
+welcome.style.display="none";
+loginPage.style.display="flex";
+}
+
+/* LOGIN */
+function login(){
+
+let user = username.value;
+let pass = password.value;
+
+if(user==="Admin@hkp" && pass==="Hkp@60020"){
+
+localStorage.setItem("role","admin");
+
+dashboard.style.display="block";
+loginPage.style.display="none";
+
+document.getElementById("adminChat").style.display="block";
+
+showPage("homePage");
+closeSidebar();
+
+loadDashboard(); 
+loadChat();
+checkRole();
+
+}
+else if(user==="Student@hkp" && pass==="Student@60020"){
+
+localStorage.setItem("role","user");
+
+dashboard.style.display="block";
+loginPage.style.display="none";
+
+document.getElementById("adminChat").style.display="none";
+
+showPage("homePage");
+closeSidebar();
+
+loadDashboard(); 
+loadChat();
+
+}
+else{
+error.innerText="Invalid Login";
+}
+
+}
+
+/* LOGOUT */
+
+function logout(){
+dashboard.style.display="none";
+loginPage.style.display="flex";
+}
+
+
+/* ===== SLIDER ===== */
+let imgs = [
+
+  "c.jpg",
+  "c2.jpg",
+  "e.jpg",
+  "clg4.jpeg",
+  "aa.jpg",
+  "hkk.jpg",
+  "hh.jpg",
+  "mm.jpg",
+  "kd.jpg",
+  "ss.jpg",
+  "bb.jpg",
+  "im.jpg",
+  "tt.jpg",
+  "kl.jpg",
+  "l.jpg",
+  "frnd13.jpeg",
+  "g.jpg",
+  "o.jpg",
+  "s.jpg"
+
+];
+
+let i = 0;
+
+// auto change
+setInterval(()=>{
+  nextSlide();
+},3000);
+
+// next
+function nextSlide(){
+  i = (i + 1) % imgs.length;
+  slideImg.src = imgs[i];
+}
+
+
+function prevSlide(){
+  i = (i - 1 + imgs.length) % imgs.length;
+  slideImg.src = imgs[i];
+}
+
+
+
+function toggleSidebar(){
+let sb = document.getElementById("sidebar");
+
+if(sb.style.left === "0px"){
+sb.style.left = "-260px";
+}else{
+sb.style.left = "0px";
+}
+}
+
+function toggleMenu(menuId){
+let menu = document.getElementById(menuId);
+
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
+}
+}
+
+
+
+function closeSidebar(){
+document.getElementById("sidebar").style.left = "-260px";
+}
+document.addEventListener("click", function(e){
+
+let sidebar = document.getElementById("sidebar");
+let menuBtn = document.querySelector(".menuBtn");
+
+/* click sidebar or menu button */
+if(!sidebar.contains(e.target) && !menuBtn.contains(e.target)){
+sidebar.style.left = "-260px";
+}
+
+});
+
+function addItem(){
+    if(!isAdmin()){
+        alert("Only Admin Can Add Item");
+        return;
+    }
+
+    let items = JSON.parse(localStorage.getItem("stock")) || [];
+
+    items.push({
+        name: itemName2.value,
+        qty: quantity2.value,
+        branch: branch2.value
+    });
+
+    localStorage.setItem("stock", JSON.stringify(items));
+
+    itemName2.value="";
+    quantity2.value="";
+
+    loadData();
+
+    showPage("viewItemPage");
+}
+
+
+function sendMessage(){
+
+  let msg = chatInput.value;
+  if(msg.trim() === "") return;
+
+  let chats = JSON.parse(localStorage.getItem("chat")) || [];
+
+  chats.push({
+    id: Date.now(),   
+    user: "Admin",
+    message: msg,
+    time: new Date().toLocaleTimeString()
+  });
+
+  localStorage.setItem("chat", JSON.stringify(chats));
+
+  chatInput.value = "";
+
+  loadChat();
+}
+
+function loadChat(){
+
+  let role = localStorage.getItem("role");
+  let chats = JSON.parse(localStorage.getItem("chat")) || [];
+
+  chatBox.innerHTML = "";
+
+  chats.forEach(c => {
+
+    chatBox.innerHTML += `
+    
+    <div style="
+      margin-bottom:10px;
+      padding:8px;
+      background:#f1f5f9;
+      border-radius:8px;
+      border-left:4px solid #2563eb;
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+      ">
+
+        <div>
+          <b style="color:#2563eb;">👤 ${c.user}</b>
+          <span style="
+            font-size:11px;
+            color:gray;
+            margin-left:6px;
+          ">
+            ${c.time}
+          </span>
+        </div>
+
+        ${
+          role === "admin"
+          ? `
+          <button onclick="deleteMessage(${c.id})"
+          style="
+            padding:2px 6px;
+            font-size:10px;
+            background:red;
+            color:white;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+          ">
+          Delete
+          </button>
+          `
+          : ""
+        }
+
+      </div>
+
+      <div style="
+        margin-top:6px;
+        font-size:14px;
+        color:#111;
+        word-break:break-word;
+      ">
+        ${c.message}
+      </div>
+
+    </div>
+
+    `;
+  });
+
+}
+
+function isAdmin(){
+    return localStorage.getItem("role")==="admin";
+}
+
+function checkRole(){
+
+let role = localStorage.getItem("role");
+
+if(role !== "admin"){
+
+let a =
+document.querySelector("[onclick=\"showPage('addItemPage')\"]");
+
+if(a) a.style.display="none";
+
+let b =
+document.querySelector("[onclick=\"toggleMenu('settingMenu')\"]");
+
+if(b) b.style.display="none";
+
+let c =
+document.querySelector("[onclick=\"toggleMenu('userMenu')\"]");
+
+if(c) c.style.display="none";
+
+}
+
+}
+
+function showPage(id){
+
+//page hide
+document.querySelectorAll(".page").forEach(page=>{
+page.style.display="none";
+});
+
+// selected page show
+let currentPage = document.getElementById(id);
+
+if(currentPage){
+currentPage.style.display="block";
+}
+
+closeSidebar();
+
+}
+
+
+function toggleBranch(){
+  let menu = document.getElementById("branchMenu");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+}
+
+function openBranch(id){
+
+showPage(id);
+
+if(id === "csePage"){
+loadBranch("cse");
+}
+
+else if(id === "civilPage"){
+loadBranch("civil");
+}
+
+else if(id === "elecPage"){
+loadBranch("elec");
+}
+
+}
+function addBranchItem(branch){
+
+let name = document.getElementById(branch+"Name").value;
+let qty = document.getElementById(branch+"Qty").value;
+
+if(name=="" || qty==""){
+  alert("Fill all fields");
+  return;
+}
+
+let data = JSON.parse(localStorage.getItem(branch)) || [];
+
+data.push({
+  name: name,
+  qty: Number(qty)
+});
+
+localStorage.setItem(branch, JSON.stringify(data));
+
+// clear input
+document.getElementById(branch+"Name").value="";
+document.getElementById(branch+"Qty").value="";
+
+// reload everything
+loadBranch(branch);
+loadDashboard(); 
+}
+
+function loadBranch(branch){
+
+  let role = localStorage.getItem("role");
+
+  let data = JSON.parse(localStorage.getItem(branch)) || [];
+
+  let table = document.getElementById(branch+"Table");
+
+  let total = 0;
+
+  table.innerHTML = "";
+
+  data.forEach((item,i)=>{
+
+    total += Number(item.qty);
+
+    table.innerHTML += `
+<tr>
+  <td>${i+1}</td>
+  <td>${item.name}</td>
+  <td>${item.qty}</td>
+
+  ${
+    role === "admin"
+    ? `
+    <td class="actionCol">
+      <button onclick="deleteBranchItem('${branch}',${i})">
+        Delete
+      </button>
+    </td>
+    `
+    : ""
+  }
+
+</tr>
+`;
+  });
+
+  document.getElementById(branch+"Total").innerText = total;
+
+  // USER hide
+  if(role !== "admin"){
+
+    // INPUT HIDE
+    let nameInput = document.getElementById(branch+"Name");
+    let qtyInput = document.getElementById(branch+"Qty");
+
+    if(nameInput) nameInput.style.display = "none";
+    if(qtyInput) qtyInput.style.display = "none";
+
+    // ADD BUTTON HIDE
+    let btns = document.querySelectorAll(
+      `[onclick="addBranchItem('${branch}')"]`
+    );
+
+    btns.forEach(btn=>{
+      btn.style.display = "none";
+    });
+
+    // ACTION COLUMN HIDE
+    let actionCols = document.querySelectorAll(
+      "#"+branch+"Page .actionCol"
+    );
+
+    actionCols.forEach(col=>{
+      col.style.display = "none";
+    });
+
+  }
+
+}
+
+
+
+function deleteBranchItem(branch,index){
+  let data = JSON.parse(localStorage.getItem(branch)) || [];
+  data.splice(index,1);
+  localStorage.setItem(branch, JSON.stringify(data));
+  loadBranch(branch);
+  loadDashboard();   
+}
+
+function loadDashboard(){
+
+  const sum = (arr) => {
+    if(!Array.isArray(arr)) return 0;
+    return arr.reduce((t,i)=> t + Number(i.qty || 0), 0);
+  };
+
+  const get = (key) => JSON.parse(localStorage.getItem(key)) || [];
+
+  // ===== DEPARTMENT =====
+  document.getElementById("dashCse").innerText = sum(get("cse"));
+  document.getElementById("dashCivil").innerText = sum(get("civil"));
+  document.getElementById("dashElec").innerText = sum(get("elec"));
+
+  // ===== LAB =====
+  document.getElementById("dashChem").innerText = sum(get("chem"));
+  document.getElementById("dashPhy").innerText = sum(get("phy"));
+  document.getElementById("dashEm").innerText = sum(get("em"));
+  document.getElementById("dashFeee").innerText = sum(get("feee"));
+  document.getElementById("dashIt").innerText = sum(get("it"));
+
+  // ===== WORKSHOP =====
+  document.getElementById("dashCarp").innerText = sum(get("carp"));
+  document.getElementById("dashFit").innerText = sum(get("fit"));
+  document.getElementById("dashWeld").innerText = sum(get("weld"));
+  document.getElementById("dashMachine").innerText = sum(get("machine"));
+  document.getElementById("dashBlack").innerText = sum(get("black"));
+
+  // ===== LIBRARY =====
+  document.getElementById("dashLibCse").innerText = sum(get("libCse"));
+  document.getElementById("dashLibCivil").innerText = sum(get("libCivil"));
+  document.getElementById("dashLibElec").innerText = sum(get("libElec"));
+  document.getElementById("dashLibSem").innerText = sum(get("libSem"));
+  // ===== LOW STOCK ALERT =====
+
+  let lowStockHTML = "";
+
+  const branches = {
+    cse:"CSE",
+    civil:"Civil",
+    elec:"Electrical",
+    chem:"Chemistry",
+    phy:"Physics",
+    em:"EM Lab",
+    feee:"FEEE",
+    it:"IT Lab",
+    carp:"Carpentry",
+    fit:"Fitting",
+    weld:"Welding",
+    machine:"Machine",
+    black:"Blacksmithy"
+  };
+
+  for(let key in branches){
+
+    let items = get(key);
+
+    items.forEach(item=>{
+
+      if(Number(item.qty) < 10){
+
+        lowStockHTML += `
+        <div>
+          ⚠ ${branches[key]} :
+          ${item.name}
+          (Qty: ${item.qty})
+        </div>
+        `;
+
+      }
+
+    });
+
+  }
+
+  if(lowStockHTML !== ""){
+
+    document.getElementById("lowStockAlert").style.display = "block";
+
+    document.getElementById("lowStockList").innerHTML =
+    lowStockHTML;
+
+  }else{
+
+    document.getElementById("lowStockAlert").style.display = "none";
+
+  }
+  
+  
+}
+
+
+
+function printBranch(branch){
+
+  let data = JSON.parse(localStorage.getItem(branch)) || [];
+
+  let branchName = "";
+
+  if(branch === "cse") branchName = "CSE Department";
+  if(branch === "civil") branchName = "Civil Departmen ";
+  if(branch === "elec") branchName = "Electrical Departmen";
+  
+  if(branch === "chem") branchName = "Chemistry Laboratory";
+  if(branch === "phy") branchName = "Physics Laboratory";
+  if(branch === "em") branchName = "EM Laboratory";
+  if(branch === "feee") branchName = "FEEE Laboratory";
+  if(branch === "it") branchName = "IT Laboratory";
+  if(branch === "carp") branchName = "Carpentry Shop";
+  if(branch === "fit") branchName = "Fitting Shop";
+  if(branch === "weld") branchName = "Welding Shop";
+  if(branch === "machine") branchName = "Machine Shop";
+  if(branch === "black") branchName = "Blacksmithy Shop";
+  
+  let title = branchName + " Inventory Report";
+
+  let html = `
+  <html>
+  <head>
+  <title>Print</title>
+
+  <style>
+  body{
+    font-family:Arial;
+    padding:20px;
+  }
+
+  h2{
+    text-align:center;
+    margin-bottom:20px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+  }
+
+  th,td{
+    border:1px solid #000;
+    padding:10px;
+    text-align:center;
+  }
+
+  th{
+    background:#eee;
+  }
+  .page{
+display:none;
+}
+
+#homePage{
+display:block;
+}
+  
+  
+  </style>
+
+  </head>
+  <body>
+
+  <h2>${title}</h2>
+
+  <table>
+  <tr>
+  <th>Sl No</th>
+  <th>Item Name</th>
+  <th>Quantity</th>
+  </tr>
+  `;
+
+  let total = 0;
+
+  data.forEach((item,i)=>{
+    total += Number(item.qty);
+
+    html += `
+    <tr>
+    <td>${i+1}</td>
+    <td>${item.name}</td>
+    <td>${item.qty}</td>
+    </tr>
+    `;
+  });
+
+  html += `
+  <tr>
+    <th colspan="2">Total</th>
+    <th>${total}</th>
+  </tr>
+  </table>
+
+  </body>
+  </html>
+  `;
+
+  let win = window.open('', '', 'width=800,height=600');
+  win.document.write(html);
+  win.document.close();
+  win.print();
+}
+
+function openSem(id){
+
+showPage(id);
+
+if(id === "chemPage"){
+loadBranch("chem");
+}
+
+else if(id === "phyPage"){
+loadBranch("phy");
+}
+
+else if(id === "emPage"){
+loadBranch("em");
+}
+
+else if(id === "feeePage"){
+loadBranch("feee");
+}
+
+else if(id === "itPage"){
+loadBranch("it");
+}
+
+}
+
+function openWorkshop(id){
+
+showPage(id);
+
+if(id === "carpPage"){
+loadBranch("carp");
+}
+
+else if(id === "fitPage"){
+loadBranch("fit");
+}
+
+else if(id === "weldPage"){
+loadBranch("weld");
+}
+
+else if(id === "machinePage"){
+loadBranch("machine");
+}
+
+else if(id === "blackPage"){
+loadBranch("black");
+}
+
+}
+
+
+function openLibrary(id){
+
+showPage(id);
+
+if(id === "libCsePage"){
+loadLibrary("libCse");
+}
+
+else if(id === "libCivilPage"){
+loadLibrary("libCivil");
+}
+
+else if(id === "libElecPage"){
+loadLibrary("libElec");
+}
+
+else if(id === "libSemPage"){
+loadLibrary("libSem");
+}
+
+}
+
+function addLibrary(prefix){
+
+  let name = document.getElementById(prefix+"Name").value;
+  let code = document.getElementById(prefix+"Code").value;
+  let qty = document.getElementById(prefix+"Qty").value;
+
+  if(name=="" || code=="" || qty==""){
+    alert("Fill all fields");
+    return;
+  }
+
+  let data = JSON.parse(localStorage.getItem(prefix)) || [];
+
+  data.push({name:name, code:code, qty:qty});
+
+  localStorage.setItem(prefix, JSON.stringify(data));
+
+  document.getElementById(prefix+"Name").value="";
+  document.getElementById(prefix+"Code").value="";
+  document.getElementById(prefix+"Qty").value="";
+
+  loadLibrary(prefix);
+  loadDashboard();
+}
+
+
+function loadLibrary(prefix){
+
+  let role = localStorage.getItem("role");
+
+  let data = JSON.parse(localStorage.getItem(prefix)) || [];
+
+  let table = document.getElementById(prefix+"Table");
+
+  if(!table) return;
+
+  let total = 0;
+
+  table.innerHTML = "";
+
+  data.forEach((item,i)=>{
+
+    total += Number(item.qty);
+
+    table.innerHTML += `
+    <tr>
+
+      <td>${i+1}</td>
+      <td>${item.name}</td>
+      <td>${item.code}</td>
+      <td>${item.qty}</td>
+
+      ${
+        role === "admin"
+        ?
+        `<td class="actionCol">
+          <button onclick="deleteLibrary('${prefix}',${i})">
+            Delete
+          </button>
+        </td>`
+        :
+        ""
+      }
+
+    </tr>
+    `;
+  });
+
+  document.getElementById(prefix+"Total").innerText = total;
+
+  // USER  hide
+  if(role !== "admin"){
+
+    // INPUT HIDE
+    let name = document.getElementById(prefix+"Name");
+    let code = document.getElementById(prefix+"Code");
+    let qty = document.getElementById(prefix+"Qty");
+
+    if(name) name.style.display = "none";
+    if(code) code.style.display = "none";
+    if(qty) qty.style.display = "none";
+
+    // ADD BUTTON HIDE
+    let btns = document.querySelectorAll(
+      `[onclick="addLibrary('${prefix}')"]`
+    );
+
+    btns.forEach(btn=>{
+      btn.style.display = "none";
+    });
+
+    // ACTION COLUMN HIDE
+    let actionCols = document.querySelectorAll(
+      "#"+prefix+"Page .actionCol"
+    );
+
+    actionCols.forEach(col=>{
+      col.style.display = "none";
+    });
+
+  }
+
+}
+
+
+function printLibrary(prefix){
+
+  let data = JSON.parse(localStorage.getItem(prefix)) || [];
+
+  let name = "";
+
+  if(prefix==="libCse") name="CSE Department Book";
+  if(prefix==="libCivil") name="Civil Department Book";
+  if(prefix==="libElec") name="Electrical Department Book";
+  if(prefix==="libSem") name="1st & 2nd Semester Book";
+
+  let html = `
+  <html>
+  <head>
+  <title>Print</title>
+  <style>
+  body{font-family:Arial;padding:20px;}
+  h2{text-align:center;}
+  table{width:100%;border-collapse:collapse;}
+  th,td{border:1px solid #000;padding:10px;text-align:center;}
+  th{background:#eee;}
+  </style>
+  </head>
+  <body>
+
+  <h2>${name} Report</h2>
+
+  <table>
+  <tr>
+  <th>SL</th>
+  <th>Book Name</th>
+  <th>Code</th>
+  <th>Qty</th>
+  </tr>
+  `;
+
+  let total = 0;
+
+  data.forEach((item,i)=>{
+    total += Number(item.qty);
+
+    html += `
+    <tr>
+      <td>${i+1}</td>
+      <td>${item.name}</td>
+      <td>${item.code}</td>
+      <td>${item.qty}</td>
+    </tr>
+    `;
+  });
+
+  html += `
+  <tr>
+    <th colspan="3">Total</th>
+    <th>${total}</th>
+  </tr>
+  </table>
+
+  </body>
+  </html>
+  `;
+
+  let win = window.open('', '', 'width=800,height=600');
+  win.document.write(html);
+  win.document.close();
+  win.print();
+}
+
+function deleteLibrary(prefix,index){
+
+  let data = JSON.parse(localStorage.getItem(prefix)) || [];
+
+  data.splice(index,1);
+
+  localStorage.setItem(prefix, JSON.stringify(data));
+
+  loadLibrary(prefix);
+  loadDashboard();
+}
+
+function deleteMessage(id){
+
+  if(localStorage.getItem("role") !== "admin"){
+    alert("Only admin can delete message");
+    return;
+  }
+
+  let chats = JSON.parse(localStorage.getItem("chat")) || [];
+
+  chats = chats.filter(c => c.id !== id);
+
+  localStorage.setItem("chat", JSON.stringify(chats));
+
+  loadChat();
+}
+
+
+setInterval(()=>{
+
+  let now = new Date();
+
+  document.getElementById("liveClock")
+  .innerHTML = now.toLocaleString();
+
+},1000);
+
+
+function isAdmin(){
+  return localStorage.getItem("role")==="admin";
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  // HOME PAGE SHOW
+  showPage("homePage");
+
+  // DASHBOARD
+  loadDashboard();
+
+  // CHAT
+  loadChat();
+
+  // ROLE
+  checkRole();
+
+  // BRANCH
+  loadBranch("cse");
+  loadBranch("civil");
+  loadBranch("elec");
+
+  // LAB
+  loadBranch("chem");
+  loadBranch("phy");
+  loadBranch("em");
+  loadBranch("feee");
+  loadBranch("it");
+
+  // WORKSHOP
+  loadBranch("carp");
+  loadBranch("fit");
+  loadBranch("weld");
+  loadBranch("machine");
+  loadBranch("black");
+
+  // LIBRARY
+  loadLibrary("libCse");
+  loadLibrary("libCivil");
+  loadLibrary("libElec");
+  loadLibrary("libSem");
+
+});
+
+</script>
+</body>
+</html>
